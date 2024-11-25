@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/flickity.css">
+
+	<link rel="stylesheet" type="text/css" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+<style type="text/css">
+
+.header { display: block; width: 100%; box-shadow: var(--bs); }
+
+.nav_container { max-width: 1140px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
+
+
+.navlist { display: flex; }
+
+.navlist li a { display: block; padding: 16px; }
+
+.navbar_logo { width: 120px; display: block; }
+.navbar_logo img { width: 100%; height: auto; }
+
+
+</style>
+
+
+<header class="header">
+	<div class="nav_container">
+		<div class="navbar_logo"> <img src="assets/images/lotus_logo.jpg" alt=""> </div>
+
+		<div class="navbar">
+			<ul class="navlist">
+				<li> <a href="./index.html" target="_self"> Home     </a> </li>
+				<li> <a href="./About_Us.html" target="_self"> About    </a> </li>
+				<li> <a href="./Ppage.html" target="_self"> Products </a> </li>
+				<li> <a href="./gallery.html" target="_self"> Gallery  </a> </li>
+				<li> <a href="./Contact.html" target="_self"> Contact  </a> </li>
+			</ul>
+		</div>
+
+
+	</div>
+</header>
+
+
+
+<style>
+.modal { display: none; width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: #000000c1; z-index: 1000; overflow: auto;  }
+.modal-content { max-width: 1200px; width: 100%; position: relative; margin: auto; padding: 0; }
+
+/* The Close Button */
+.close-btn { position: absolute; color: #FFF; top: 10px; right: 25px; font-size: 35px; font-weight: bold; }
+.close-btn:hover, .close-btn:focus { color: #999; text-decoration: none; cursor: pointer; }
+
+.mySlides { display: none; }
+.mySlides img { width:50%; margin: auto; display: block; }
+
+.prev,
+.next { width: auto; position: absolute; top: 50%; padding: 16px; color: #FFF; background: transparent;
+	font-weight: bold; font-size: 30px; transition: 0.6s ease; user-select: none; cursor: pointer; }
+.next { right: 0; }
+
+.prev:hover, .next:hover { background: transparent; }
+
+.widget-gallery { width: 100%; display: block; position: relative; padding: 100px 0px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 16px; }
+.gallery-item { width: 100%; display: block; transition: 0.3s; box-shadow: var(--bs); }
+.gallery-item:hover { box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030; }
+.gallery-item img { width: 100%; height: 100%; cursor: pointer; }
+.gal{
+	text-align: center;
+	font-size: 35px;
+}
+.gal:hover{
+	cursor: pointer;
+	color: var(--c1);
+	transition: .6 ease;
+}
+/**/
+.gallery-modal { width: 100%; height: 100%; display: none; position: fixed; top: 0; left: 0; background: #000000a8; z-index: 1000; overflow: auto; }
+.flex-area { width: 100%; height: 100vh; display: flex; justify-content: space-around; align-items: center; }
+
+@media all and (max-width: 480px) {
+
+	.widget-gallery { padding: 50px 16px; }
+	.gallery-grid { grid-template-columns: repeat(1, 1fr); }
+	.mySlides img { width: 80%; }
+}
+
+</style>
+
+<section class="widget-gallery">
+	<h1 class="gal">Gallery</h1><br>
+	<div class="container">
+		<div class="gallery-grid">
+			<div class="gallery-item"> <img src="assets/images/gallery_img-01.png" onclick="openModal();currentSlide(1)" alt=""> </div>
+			<div class="gallery-item"> <img src="assets/images/gallery_img-02.png" onclick="openModal();currentSlide(2)" alt=""> </div>
+			<div class="gallery-item"> <img src="assets/images/gallery_img-03.png" onclick="openModal();currentSlide(3)" alt=""> </div>
+			<div class="gallery-item"> <img src="assets/images/gallery_img-04.png" onclick="openModal();currentSlide(4)" alt=""> </div>
+			<div class="gallery-item"> <img src="assets/images/gallery_img-05.png" onclick="openModal();currentSlide(5)" alt=""> </div>
+			<div class="gallery-item"> <img src="assets/images/gallery_img-06.png" onclick="openModal();currentSlide(6)" alt=""> </div>
+			<div class="gallery-item"> <img src="assets/images/gallery_img-07.png" onclick="openModal();currentSlide(7)" alt=""> </div>
+			<div class="gallery-item"> <img src="assets/images/gallery_img-08.png" onclick="openModal();currentSlide(8)" alt=""> </div>
+		</div>
+
+		<div id="myModal" class="modal">
+			<div class="flex-area">
+				<span class="close-btn cursor" onclick="closeModal()">&times;</span>
+				<div class="modal-content">
+					<div class="mySlides"> <img src="assets/images/gallery_img-01.png" alt=""> </div>
+					<div class="mySlides"> <img src="assets/images/gallery_img-02.png" alt=""> </div>
+					<div class="mySlides"> <img src="assets/images/gallery_img-03.png" alt=""> </div>
+					<div class="mySlides"> <img src="assets/images/gallery_img-04.png" alt=""> </div>
+					<div class="mySlides"> <img src="assets/images/gallery_img-05.png" alt=""> </div>
+					<div class="mySlides"> <img src="assets/images/gallery_img-06.png" alt=""> </div>
+					<div class="mySlides"> <img src="assets/images/gallery_img-07.png" alt=""> </div>
+					<div class="mySlides"> <img src="assets/images/gallery_img-08.png" alt=""> </div>
+
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- ---------- ----- FOOTER ----- ---------- -->
+<footer class="footer">
+	<div class="upper_section">
+		<div class="footer_row">
+			<div class="footer_col fc1">
+				<h3 class="footer_title"> About Us </h3>
+				<p>Lotus Agros One of the largest manufacturer of Agro Chemicals in India, offering a wide range of Formulations and Public Health products, where “Chemistry is at its best".</p>
+				<div class="footer_social">
+					<a href="https://www.facebook.com/profile.php?id=61563775696920" target="_blank"> <i class="fa-brands fa-facebook-f"></i> </a>
+					<a href="https://www.instagram.com/lotus_biotech/?fbclid=IwZXh0bgNhZW0CMTEAAR2MfKlccAbzk2fmM65wQKx1fneCYWoEsGLxmUgZeFz3GGPPugWiPVIIiDk_aem_bLPs7KF3sve4ga8YcBEYFg" target="_blank"> <i class="fa-brands fa-instagram"></i>  </a>
+					<a href="" target="_blank"> <i class="fa-brands fa-x-twitter"></i>  </a>
+					<a href="" target="_blank"> <i class="fa-brands fa-youtube"></i>    </a>
+				</div>
+			</div>
+			<div class="footer_col fc2">
+				<h3 class="footer_title"> Useful Links </h3>
+				<ul class="footer_link">
+					<li> <a href="./index.html" target="_self">   Home     </a> </li>
+					<li> <a href="./About_Us.html" target="_self">   About Us    </a> </li>
+					<li> <a href="./Ppage.html" target="_self"> Products </a> </li>
+					<li> <a href="./gallery.html" target="_self">    Gallery     </a> </li>
+					<li> <a href="./Contact.html" target="_self"> Contact Us  </a> </li>
+				</ul>
+			</div>
+			<div class="footer_col">
+				<h3 class="footer_title"> Get In Touch </h3>
+
+				<a class="footer_anch" href="tel:">
+					<ul> <li> <i class="fa-solid fa-phone"></i> </li> <li> <h4> PHONE : </h4> <p> +91 9346771599 </p> </li> </ul>
+				</a>
+				<a class="footer_anch" href="mailto:">
+					<ul> <li> <i class="fa-solid fa-envelope"></i> </li> <li> <h4> EMAIL : </h4> <p> lotusbio@yahoo.com </p> </li> </ul>
+				</a>
+				<a class="footer_anch" href="" target="_blank">
+					<ul>
+						<li> <i class="fa-solid fa-map"></i> </li>
+						<li> <h4>OFFICE :</h4> <p> I.pangidi, kovvuru mandal West Godavari district Andhra Pradesh Pin 534342 </p> </li>
+					</ul>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="bottom_section">
+		<div class="bottom_row"> <p> © Copyright 2024. All Rights Reserved by <a href=""> Lotus Agro </a> </p> </div>
+	</div>
+</footer>
+
+
+
+<script>
+function openModal() { document.getElementById("myModal").style.display = "block"; }
+function closeModal() { document.getElementById("myModal").style.display = "none"; }
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) { showSlides(slideIndex += n); }
+
+function currentSlide(n) { showSlides(slideIndex = n); }
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+</script>
+
+
+
+
+
+</body>
+</html>

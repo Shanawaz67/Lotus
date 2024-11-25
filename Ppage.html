@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/flickity.css">
+
+	<link rel="stylesheet" type="text/css" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+<style type="text/css">
+
+.header { display: block; width: 100%; box-shadow: var(--bs); }
+
+.nav_container { max-width: 1140px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
+
+
+.navlist { display: flex; }
+
+.navlist li a { display: block; padding: 16px; }
+
+.navbar_logo { width: 120px; display: block; }
+.navbar_logo img { width: 100%; height: auto; }
+
+
+</style>
+
+
+<header class="header">
+	<div class="nav_container">
+		<div class="navbar_logo"> <img src="assets/images/lotus_logo.jpg" alt=""> </div>
+
+		<div class="navbar">
+			<ul class="navlist">
+				<li> <a href="./index.html" target="_self"> Home     </a> </li>
+				<li> <a href="./About_Us.html" target="_self"> About    </a> </li>
+				<li> <a href="./Ppage.html" target="_self"> Products </a> </li>
+				<li> <a href="./gallery.html" target="_self"> Gallery  </a> </li>
+				<li> <a href="./Contact.html" target="_self"> Contact  </a> </li>
+			</ul>
+		</div>
+
+
+	</div>
+</header>
+
+<style type="text/css">
+
+.banner_carousel { display: block; }
+.banner_slide { width: 100%; display: inline-block; overflow: hidden; }
+
+.banner_area { display: block; position: relative; z-index: 2; }
+
+.banner_img { display: block; width: 100%; }
+.banner_img img { width: 100%; height: auto; }
+
+.Testimonial .flickity-page-dots { bottom: 0; }
+.Testimonial .flickity-page-dots .dot { background: #fff; }
+
+.banner_video { display: block; position: relative; z-index: 2; }
+.banner_video:before { content: ""; width: 100%; height: 100%; display: block; background: green; position: absolute; top: 0; left: 0; opacity: 0%; }
+.banner_video video { width: 100%; height: auto; object-fit: cover; }
+
+
+
+.banner_info { display: block; position: absolute; top: 20%; text-align: center; z-index: 9; width: 100%; }
+.banner_info_area { display: block; position: relative; }
+.banner_info_img { display: block; }
+.banner_info_img img { width: 100%; height: auto; }
+.banner_info_text { display: flex; justify-content: space-around; align-items: center; position: absolute; left: 0; top: 0; bottom: 0; width: 100%; padding: 16%; }
+.banner_info_text p { color: #fff; font-size: 24px; }
+.banner_info_text h3 { color: #fff; font-size: 40px; }
+
+
+
+@media all and (max-width: 480px) {
+
+	.banner_info { width: 70%; top: -4%; left: 16%; }
+	.banner_info_text p { color: #fff; font-size: 13px; }
+	.banner_info_text h3 { font-size: 16px; }
+}
+
+@media (min-width: 500px) and (max-width: 1024px) {
+
+	.banner_info { width: 65%; top: 0%; left: 20%; }
+	.banner_info_text p { color: #fff; font-size: 20px; }
+	.banner_info_text h3 { font-size: 30px; }
+}
+
+
+
+</style>
+
+
+<!-- ---------- ----- Banner ----- ---------- -->
+<section class="section_banner">
+	<div class="banner_carousel">
+		<div class="banner_slide">
+			<div class="banner_area">
+				<div class="banner_img"> <img src="banner-01.jpg" alt=""> </div>
+			</div>
+		</div>
+		<div class="banner_slide">
+			<div class="banner_area">
+				<div class="banner_img"> <img src="banner-02.jpg" alt=""> </div>
+			</div>
+		</div>
+		<div class="banner_slide">
+			<div class="banner_area">
+				<div class="banner_img"> <img src="banner-03.jpg" alt=""> </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style type="text/css">
+
+
+.product_row { display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 24px; }
+.product_col { display: block; width: 100%; }
+
+.product_item { width: 100%; display: block; position: relative; border-radius: 8px; box-shadow: var(--bs); overflow: hidden; }
+.product_item::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  background-color: rgba(var(--agriox-primary-rgb, 51, 75, 53), 0.5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  z-index: 1;
+}
+
+.product_item:hover::before { -webkit-transform: scaleX(1); transform: scaleX(1); }
+
+.product_item img { width: 100%; height: auto; }
+
+.product_name { position: absolute; left: 0; bottom: 0; right: 0; width: 100%; height: 0; background: var(--c1);
+	display: flex; justify-content: space-around; align-items: center; transition: .5s ease; overflow: hidden; z-index: 2; }
+
+.product_item:hover .product_name { height: 20%; }
+
+.product_name h3 { color: #fff; }
+
+
+
+
+
+
+
+
+/*  ----- Section Header -----  */
+.section_header { display: block; text-align: center; margin-bottom: 32px; }
+.section_header span { display: block; color: #000; font-weight: 600; }
+.section_header h2 { font-size: var(--fs); margin-top: 8px; color: var(--c1); }
+
+
+
+</style>
+
+
+<section class="widget-section products">
+	<div class="container">
+		<div class="section_header">
+			<h2> Our Prodcuts </h2>
+		</div>
+		<div class="product_row">
+			<div class="product_col">
+				<div class="product_item">
+					<img src="assets/images/product-01.png" alt="">
+					<a href="./Fertisol.html" target="_self" class="product_name"> <h3> Fertisol </h3> </a>
+				</div>
+			</div>
+			<div class="product_col">
+				<div class="product_item">
+					<img src="assets/images/product-02.png" alt="">
+					<a href="./Sanjeevani.html" target="_self" class="product_name"> <h3> Sanjeevani </h3> </a>
+				</div>
+			</div>
+			<div class="product_col">
+				<div class="product_item">
+					<img src="assets/images/product-03.png" alt="">
+					<a href="./Suphala.html" target="_self" class="product_name"> <h3> Suphala </h3> </a>
+				</div>
+			</div>
+			<div class="product_col">
+				<div class="product_item">
+					<img src="assets/images/product-04.png" alt="">
+					<a href="./Haritha_Super_Grow.html" target="_self" class="product_name"> <h3> Haritha Super Grow </h3> </a>
+				</div>
+			</div>
+			<div class="product_col">
+				<div class="product_item">
+					<img src="assets/images/product-05.png" alt="">
+					<a href="./Surya_Gold.html" target="_self" class="product_name"> <h3> Surya Gold </h3> </a>
+				</div>
+			</div>
+			<div class="product_col">
+				<div class="product_item">
+					<img src="assets/images/product-06.png" alt="">
+					<a href="./Taurus.html" target="_self" class="product_name"> <h3> Taurus </h3> </a>
+				</div>
+			</div>
+			<div class="product_col">
+				<div class="product_item">
+					<img src="assets/images/product-07.png" alt="">
+					<a href="./Fortex_4G.html" target="_self" class="product_name"> <h3> Fortex 4G </h3> </a>
+				</div>
+			</div>
+			<div class="product_col">
+				<div class="product_item">
+					<img src="assets/images/product-08.png" alt="">
+					<a href="./Acethene.html" target="_self" class="product_name"> <h3> Acethene </h3> </a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+<!-- ---------- ----- FOOTER ----- ---------- -->
+<footer class="footer">
+	<div class="upper_section">
+		<div class="footer_row">
+			<div class="footer_col fc1">
+				<h3 class="footer_title"> About Us </h3>
+				<p>Lotus Agros One of the largest manufacturer of Agro Chemicals in India, offering a wide range of Formulations and Public Health products, where “Chemistry is at its best".</p>
+				<div class="footer_social">
+					<a href="https://www.facebook.com/profile.php?id=61563775696920" target="_blank"> <i class="fa-brands fa-facebook-f"></i> </a>
+					<a href="https://www.instagram.com/lotus_biotech/?fbclid=IwZXh0bgNhZW0CMTEAAR2MfKlccAbzk2fmM65wQKx1fneCYWoEsGLxmUgZeFz3GGPPugWiPVIIiDk_aem_bLPs7KF3sve4ga8YcBEYFg" target="_blank"> <i class="fa-brands fa-instagram"></i>  </a>
+					<a href="" target="_blank"> <i class="fa-brands fa-x-twitter"></i>  </a>
+					<a href="" target="_blank"> <i class="fa-brands fa-youtube"></i>    </a>
+				</div>
+			</div>
+			<div class="footer_col fc2">
+				<h3 class="footer_title"> Useful Links </h3>
+				<ul class="footer_link">
+					<li> <a href="./index.html" target="_self">   Home     </a> </li>
+					<li> <a href="./About_Us.html" target="_self">   About    </a> </li>
+					<li> <a href="./Ppage.html" target="_self"> Products </a> </li>
+					<li> <a href="./gallery.html" target="_self">    Gallery    </a> </li>
+					<li> <a href="./Contact.html" target="_self"> Contact Us </a> </li>
+				</ul>
+			</div>
+			<div class="footer_col">
+				<h3 class="footer_title"> Get In Touch </h3>
+
+				<a class="footer_anch" href="tel:">
+					<ul> <li> <i class="fa-solid fa-phone"></i> </li> <li> <h4> PHONE : </h4> <p> +91 9346771599 </p> </li> </ul>
+				</a>
+				<a class="footer_anch" href="mailto:">
+					<ul> <li> <i class="fa-solid fa-envelope"></i> </li> <li> <h4> EMAIL : </h4> <p> lotusbio@yahoo.com </p> </li> </ul>
+				</a>
+				<a class="footer_anch" href="" target="_blank">
+					<ul>
+						<li> <i class="fa-solid fa-map"></i> </li>
+						<li> <h4>OFFICE :</h4> <p> I.pangidi, kovvuru mandal West Godavari district Andhra Pradesh Pin 534342 </p> </li>
+					</ul>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="bottom_section">
+		<div class="bottom_row"> <p> © Copyright 2024. All Rights Reserved by <a href=""> Lotus Agro </a> </p> </div>
+	</div>
+</footer>
+
+			
+
+
+<!-- ---------- ---------- ---------- ---------- ----------- ---------- ---------- ---------- ---------- -->
+<!-- ---------- ---------- ---------- ---------- Java Script ---------- ---------- ---------- ---------- -->
+<!-- ---------- ---------- ---------- ---------- ----------- ---------- ---------- ---------- ---------- -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'> </script>
+<script type="text/javascript" src="assets/js/flickity.js"></script>
+
+<script type="text/javascript">
+	$(".banner_carousel").flickity({
+		cellAlign: 'left',
+		wrapAround: true,
+		autoPlay: true,
+		pageDots: false
+	});
+</script>
+
+
+</body>
+</html>
